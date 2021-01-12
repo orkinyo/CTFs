@@ -28,10 +28,11 @@ hore.pop(0)
 hore.pop(-1)
 print(hore)
 for i in hore:
-    m = int(re.search("\(EXP \+([^)]+)\)",i).group(1))
+    m = int(re.search("\(EXP \+([^)]+)\)",i).group(1))  & 0xffffffff
     exp += m
+exp = exp & 0xffffffff
 r.sendline("3")
-print(r.recvuntil("earned? : "))
+print(r.recvuntil("earned? : ").decode())
 exp = str(exp)
 r.sendline(exp)
 print(r.recvline().decode())
