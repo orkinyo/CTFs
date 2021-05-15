@@ -1,0 +1,4 @@
+
+*core*
+*.gdb_history*
+.vscode/settings.json
